@@ -1,5 +1,8 @@
 
 using Microsoft.EntityFrameworkCore;
+using NamaaTalabat.Core.Entities;
+using NamaaTalabat.Core.Repositories.Contract;
+using NamaaTalabat.Repository;
 using NamaaTalabat.Repository.Data;
 
 namespace NamaaTalabat.Api
@@ -21,6 +24,12 @@ namespace NamaaTalabat.Api
             options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"))
             );
 
+            builder.Services.AddScoped<IGenericRepository<Product> , GenericRepository<Product>>();
+            builder.Services.AddScoped<IGenericRepository<ProductBrand> , GenericRepository<ProductBrand>>();
+            builder.Services.AddScoped<IGenericRepository<ProductCategory> , GenericRepository<ProductCategory>>();
+
+            //builder.Services.AddScoped < typeof(IGenericRepository<>) , typeof(GenericRepository<>) > ();
+            //builder.Services.AddScoped<typeof (IGenericRepository<>) , typeof ( GenericRepository<>) > ();
             var app = builder.Build();
             var scope = app.Services.CreateScope();
             var service = scope.ServiceProvider;
