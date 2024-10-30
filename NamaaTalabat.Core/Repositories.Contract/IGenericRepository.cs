@@ -1,4 +1,5 @@
 ﻿using NamaaTalabat.Core.Entities;
+using NamaaTalabat.Core.Specification;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,6 +14,10 @@ namespace NamaaTalabat.Core.Repositories.Contract
 
         Task<IEnumerable<T>> GetAll();
 
-        Task<T?> Get(int id); 
+        Task<T?> Get(int id);
+
+
+        Task<IEnumerable<T>> GetAllWithSpec(ISpecification<T> spec);
+        Task<T?> GetByIdWithSpec(ISpecification<T> spec);
     }
 }

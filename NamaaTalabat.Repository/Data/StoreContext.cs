@@ -11,13 +11,14 @@ using System.Threading.Tasks;
 
 namespace NamaaTalabat.Repository.Data
 {
-    public class StoreContext :DbContext
+    public class StoreContext :  DbContext
     {
         public StoreContext(DbContextOptions<StoreContext> options) : base(options)
         {
             
         }
 
+        
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             //// Fluent Api
@@ -25,6 +26,7 @@ namespace NamaaTalabat.Repository.Data
             //modelBuilder.ApplyConfiguration(new ProductCategoryConfiguration());
             //modelBuilder.ApplyConfiguration(new ProductBrandConfiguration());
             //base.OnModelCreating(modelBuilder);
+            
             modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
         }
 

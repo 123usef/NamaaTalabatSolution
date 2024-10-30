@@ -15,4 +15,8 @@
     <ProjectReference Include="..\NamaaTalabat.Core\NamaaTalabat.Core.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="IdentityData\Config\" />
+  </ItemGroup>
+
 </Project>
